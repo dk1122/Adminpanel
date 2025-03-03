@@ -111,10 +111,9 @@ const Navbar1 = () => {
     const visibleRows = tableData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 
     return (
-        <Box sx={{ paddingLeft: 7
-         }}>
-            <Card variant="outlined" sx={{ mb: 3, width: '100%' }}>
-                <CardContent>
+        <Box sx={{ paddingLeft: 7 }}>
+            <Card variant="outlined" sx={{ mb: 3, width: '100%', borderWidth: '1px' }}>
+                <CardContent sx={{ display: 'flex', alignItems: 'flex-start' }}>
                     <Typography variant="h5">Customers</Typography>
                 </CardContent>
             </Card>
@@ -169,37 +168,37 @@ const Navbar1 = () => {
                         Delete
                     </Button>
                     <TablePagination
-                        sx={{marginLeft:'auto'}}
-                        rowsPerPageOptions={[5, 10, 25]}
+                        sx={{ marginLeft: 'auto' }}
+                        rowsPerPageOptions={[]} 
                         component="div"
                         count={tableData.length}
                         rowsPerPage={rowsPerPage}
                         page={page}
                         onPageChange={handleChangePage}
                         onRowsPerPageChange={handleChangeRowsPerPage}
-                    />
+                     />
                 </Box>
 
 
                 <TableContainer component={Paper}>
                     <Table>
                         <TableHead>
-                            <TableRow>
-                                <TableCell padding="checkbox">
-                                    <Checkbox size="small" />
-                                </TableCell>
-                                <TableCell sx={{ fontSize: '12px' }}>Business Names</TableCell>
-                                <TableCell sx={{ fontSize: '12px' }}>E-mail</TableCell>
-                                <TableCell sx={{ fontSize: '12px' }}>Contact</TableCell>
-                                <TableCell sx={{ fontSize: '12px' }}>Date</TableCell>
-                                <TableCell sx={{ fontSize: '12px' }}>WABA Number Status</TableCell>
-                                <TableCell sx={{ fontSize: '12px' }}>Subscription Status</TableCell>
-                                <TableCell sx={{ fontSize: '12px' }}>Start Date</TableCell>
-                                <TableCell sx={{ fontSize: '12px' }}>End Date</TableCell>
-                                <TableCell sx={{ fontSize: '12px' }}>Balance</TableCell>
-                                <TableCell sx={{ fontSize: '12px' }}>Active/Disabled</TableCell>
-                                <TableCell sx={{ fontSize: '12px' }}>Action</TableCell>
-                            </TableRow>
+                        <TableRow>
+                            <TableCell>
+                            </TableCell>
+                            <TableCell sx={{ fontSize: "12px", minWidth: 140, whiteSpace: "nowrap" }}>Business Names</TableCell>
+                            <TableCell sx={{ fontSize: "12px", minWidth: 60, whiteSpace: "nowrap" }}>E-mail</TableCell>
+                            <TableCell sx={{ fontSize: "12px", minWidth: 60, whiteSpace: "nowrap" }}>Contact</TableCell>
+                            <TableCell sx={{ fontSize: "12px", minWidth: 60, whiteSpace: "nowrap" }}>Date</TableCell>
+                            <TableCell sx={{ fontSize: "12px", minWidth: 130, whiteSpace: "nowrap" }} align="center">WABA Number Status</TableCell>
+                            <TableCell sx={{ fontSize: "12px", minWidth: 60, whiteSpace: "nowrap" }} align="center">Subscription Status</TableCell>
+                            <TableCell sx={{ fontSize: "12px", minWidth: 60, whiteSpace: "nowrap" }}>Start Date</TableCell>
+                            <TableCell sx={{ fontSize: "12px", minWidth: 60, whiteSpace: "nowrap" }}>End Date</TableCell>
+                            <TableCell sx={{ fontSize: "12px", minWidth: 40, whiteSpace: "nowrap" }}>Balance</TableCell>
+                            <TableCell sx={{ fontSize: "12px", minWidth: 60, whiteSpace: "nowrap" }}>Active/Disabled</TableCell>
+                            <TableCell sx={{ fontSize: "12px", minWidth: 80, whiteSpace: "nowrap" }}>Delete Account</TableCell>
+                        </TableRow>
+
                         </TableHead>
                         <TableBody>
                             {visibleRows.map((row) => (
@@ -214,8 +213,8 @@ const Navbar1 = () => {
                                     <TableCell sx={{ fontSize: '12px' }}>{row.email}</TableCell>
                                     <TableCell sx={{ fontSize: '12px', fontWeight:'' }}>{row.contact}</TableCell>
                                     <TableCell sx={{ fontSize: '12px' }}>{row.date}</TableCell>
-                                    <TableCell sx={{ fontSize: '12px' }}>{row.wabaStatus}</TableCell>
-                                    <TableCell sx={{ fontSize: '12px' }}>{row.subscription}</TableCell>
+                                    <TableCell sx={{ fontSize: '12px' }} align="center">{row.wabaStatus}</TableCell>
+                                    <TableCell sx={{ fontSize: '12px' }} align="center">{row.subscription}</TableCell>
                                     <TableCell sx={{ fontSize: '12px' }}>{row.startDate}</TableCell>
                                     <TableCell sx={{ fontSize: '12px' }}>{row.endDate}</TableCell>
                                     <TableCell sx={{ fontSize: '12px' }}>{row.balance}</TableCell>

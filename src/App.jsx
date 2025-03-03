@@ -7,6 +7,9 @@ import AddCredits from "./Addcredits"; // Corrected import statement
 import Password from "./Password";
 import PricingTable from "./PricingTable";
 import Component from './Component';
+import Rates from './Rates';
+import Subscriptions from './Subscriptions';
+
 
 export default function App() {
   return (
@@ -17,6 +20,8 @@ export default function App() {
           <Route path="/Newpage" element={<Newpage />} />
           <Route path="/" element={<Component/>} />
           <Route path="/Settings" element={<Settings/>} />
+          <Route path="/Settings/Rates" element={<Rates/>} />
+          <Route path="/Settings/Subscriptions" element={<Subscriptions/>}/>
           <Route path="/Subscription" element={<Subscription/>}/>
           <Route path="/AddCredits" element={<AddCredits/>}/> {/* Corrected route path */}
           <Route path="/Password" element={<Password/>}/>

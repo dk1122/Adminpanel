@@ -36,3 +36,43 @@
 .icon-color{
     color: rgb(106, 39, 214);
 }
+.button-container {
+    display: flex;
+    gap: 20px; /* Space between buttons */
+    margin-left: 60px;
+  }
+  
+  .slide-button {
+    position: relative;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(45deg, #ff7eb3, #ff758c);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .slide-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: left 0.3s ease;
+  }
+  
+  .slide-button:hover::after {
+    left: 100%;
+  }
+  
+  .slide-button:hover {
+    transform: translateX(10px); /* Moves button slightly to the right */
+    box-shadow: 0 5px 15px rgba(255, 117, 140, 0.4);
+  }
+  

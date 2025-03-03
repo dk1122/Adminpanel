@@ -6,16 +6,21 @@ const Password = ({ open, handleClose }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
 
   const handleReset = () => {
-    if (newPassword === confirmPassword && newPassword.length >= 8) {
-      console.log("Password reset successful");
+    if (newPassword !== confirmPassword) {
+      setError("Passwords do not match.");
+    } else if (newPassword.length < 8) {
+      setError("Password must be at least 8 characters long.");
     } else {
-      console.log("Passwords do not match or do not meet the criteria.");
+      setError("");
+      console.log("Password reset successful");
+      // Add your password reset logic here
     }
   };
 
@@ -26,8 +31,6 @@ const Password = ({ open, handleClose }) => {
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
     p: 4,
   };
 
@@ -75,6 +78,11 @@ const Password = ({ open, handleClose }) => {
             ),
           }}
         />
+        {error && (
+          <Typography color="error" sx={{ mb: 2 }}>
+            {error}
+          </Typography>
+        )}
         <Button
           variant="contained"
           color="primary"
