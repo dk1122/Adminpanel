@@ -1,0 +1,156 @@
+.search-container {
+    display: flex;
+    border: 1px solid black;
+    margin-top: 2.5rem; /* mt-10 */
+    margin-left: 2.5rem; /* ml-10 */
+    padding: 1.25rem 1.25rem; /* px-5 py-1 */
+    width: 350px;
+    align-items: left;
+    border-radius: 0.375rem; /* rounded-md */
+    justify-content: space-between;
+  }
+  
+  .search-input {
+    font-size: 0.875rem; /* placeholder:text-sm */
+    color: gray; /* placeholder:text-gray-600 */
+    outline: none;
+    width: 350px;
+  }
+  
+  .search-icon {
+    font-size: 1.25rem; /* text-xl */
+  }
+  .search-container {
+    display: flex;
+    border: 1px solid black;
+    margin-top: 2.0rem;
+    margin-left: 47rem;
+    padding: 0.25rem 1.25rem;
+    width: 350px;
+    align-items: center;
+    border-radius: 0.375rem;
+    justify-content: space-between;
+  }
+  
+  .search-input {
+    font-size: 0.875rem;
+    color: gray;
+    outline: none;
+    width: 350px;
+  }
+  
+  .search-icon {
+    font-size: 1.25rem;
+  }
+  h1{
+    font-size: large;
+    margin-left: 70px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+  }
+  #search{
+    text-align: right;
+    margin-right: 10px  ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+  body {
+    font-family: dm Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.Navtable {
+    max-width: 1500px;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-left: 60px;
+}
+
+.Table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+.Table thead {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+}
+
+.Table th, .Table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+}
+
+.Table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.Table tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.Table td {
+    font-size: 14px;
+    color: #333;
+}
+
+.Table td:last-child {
+    text-align: center;
+}
+
+.Table th {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.Table td a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.Table td a:hover {
+    text-decoration: underline;
+}
+.checkbox {
+    width: 20px; /* Adjust the size of the checkbox */
+    height: 20px; /* Adjust the size of the checkbox */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+.container{
+  width:30%;
+  height: 50%;
+  background-color: #dddddd;
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+.button{
+  background-color: #dddddd;
+  width:auto;
+  height:auto;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.delete{
+  border-color:red;
+  border: 1px solid red;
+  border-radius: 3px;
+  background-color: white;
+  padding:1px 10px;
+  color: red;
+}
+.delete i {
+  padding:2px;
+}
+#page{
+  margin-left: 900px;
+}
