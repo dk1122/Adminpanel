@@ -3,6 +3,7 @@ import { Tabs, Tab, Box } from "@mui/material";
 import Sidebar from "./Sidebar";
 import Rates from "./Rates";
 import Subscriptions from "./Subscriptions";
+import "./Font.css";
 
 function CustomTabs() {
   const [value, setValue] = useState(0);

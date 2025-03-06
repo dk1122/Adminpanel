@@ -1,4 +1,5 @@
 import React from "react";
+import "./Font.css";
 import { Grid, Typography, TextField, Button, Paper, Modal, Box} from "@mui/material";
 
 const style = {

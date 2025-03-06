@@ -106,8 +106,7 @@ const Navbar1 = () => {
         }
         
     ];
-
-    const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - tableData.length) : 0;
+    
     const visibleRows = tableData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 
     return (

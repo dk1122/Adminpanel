@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Font.css";
 import { TextField, Button, Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Modal } from "@mui/material";
 
 const Subscription = ({ open, handleClose }) => {

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { TextField, Button, Box, Typography, Modal } from "@mui/material";
+import "./Font.css";
+
 
 const AddCredits = ({ open, handleClose }) => {
   const [amount, setAmount] = useState("");
@@ -27,6 +29,7 @@ const AddCredits = ({ open, handleClose }) => {
   };
 
   return (
+    <div id='add'>
     <Modal open={open} onClose={handleClose}>
       <Box sx={style}>
         <Typography variant="h6" gutterBottom>
@@ -59,6 +62,7 @@ const AddCredits = ({ open, handleClose }) => {
         </Button>
       </Box>
     </Modal>
+    </div>
   );
 };
 

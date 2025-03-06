@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TextField, Button, IconButton, InputAdornment, Box, Typography, Modal } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+import "./Font.css";
 
 const Password = ({ open, handleClose }) => {
   const [showPassword, setShowPassword] = useState(false);

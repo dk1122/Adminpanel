@@ -9,9 +9,9 @@ import {
     Paper,
     Button,
     TextField,
-    Typography,
     Box
 } from '@mui/material';
+import "./Font.css";
 
 const Rates = () => {
 
@@ -36,6 +36,7 @@ const Rates = () => {
     }
 
     return ( 
+        <div id= "pass">
         <Box class="Rate" sx={{ p: 8 }}>
                 <Paper sx={{ p: 2, maxWidth: '800px', mx: '' }}>   
                     <TableContainer>
@@ -101,6 +102,7 @@ const Rates = () => {
                     </Box>
                 </Paper>
             </Box>
+            </div>
      );
 }
  

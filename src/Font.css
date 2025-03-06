@@ -1,0 +1,24 @@
+/* styles.css */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'DM Sans', sans-serif;
+}
+#nav{
+    font-family: 'DM Sans', sans-serif; 
+}
+#new{
+    font-family: 'DM Sans', sans-serif; 
+}
+#add{
+    font-family: 'DM Sans', sans-serif; 
+}
+#pass{
+    font-family: 'DM Sans', sans-serif; 
+}
+#pric{
+    font-family: 'DM Sans', sans-serif; 
+}
+#rate{
+    font-family: 'DM Sans', sans-serif; 
+}
