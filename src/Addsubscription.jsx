@@ -5,14 +5,18 @@ import {
     Button,
     Modal,
     Box,
+    IconButton,
 } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 
 const AddSubscription = ({ open, handleClose }) => {
     const [plan, setPlan] = useState("");
+    const [subscriptionType, setSubscriptionType] = useState("");
 
     const handleUpdate = () => {
         console.log("Plan:", plan);
-        // Add your logic to handle the subscription update here
+        console.log("Subscription Type:", subscriptionType);
+        
     };
 
     const style = {
@@ -34,6 +38,17 @@ const AddSubscription = ({ open, handleClose }) => {
     return (
         <Modal open={open} onClose={handleClose}>
             <Box sx={style}>
+                <IconButton
+                    aria-label="close"
+                    onClick={handleClose}
+                    sx={{
+                        position: 'absolute',
+                        right: 8,
+                        top: 8,
+                    }}
+                >
+                    <CloseIcon />
+                </IconButton>
                 <Typography variant="h6" gutterBottom>
                     Activate Subscription
                 </Typography>
@@ -48,12 +63,29 @@ const AddSubscription = ({ open, handleClose }) => {
                         }}
                         value={plan}
                         onChange={(e) => setPlan(e.target.value)}
-                        sx={{ mb: 2 }} // Use sx for consistent styling
+                        sx={{ mb: 2 }} 
                     >
-                        <option value="">Select the Plan</option>
-                        <option value="monthly">Monthly</option>
-                        <option value="quarterly">Quarterly</option>
-                        <option value="yearly">Yearly</option>
+                        <option value="">Select the Subscription Type</option>
+                        <option value="monthly">Basic</option>
+                        <option value="quarterly">Standard</option>
+                        <option value="yearly">premium</option>
+                    </TextField>
+                    <label htmlFor="">Subscription Type</label>
+                    <TextField
+                        // label="Subscription Type"
+                        variant="outlined"
+                        select
+                        SelectProps={{
+                            native: true,
+                        }}
+                        value={subscriptionType}
+                        onChange={(e) => setSubscriptionType(e.target.value)}
+                        sx={{ mb: 2 }} 
+                    >
+                        <option value="">Select the duration</option>
+                        <option value="basic">Monthly</option>
+                        <option value="standard">Quaterly</option>
+                        <option value="premium">Yearly</option>
                     </TextField>
                 </div>
                 <Button
@@ -63,15 +95,6 @@ const AddSubscription = ({ open, handleClose }) => {
                     onClick={handleUpdate}
                 >
                     Activate
-                </Button>
-                <Button
-                    variant="outlined"
-                    color="inherit"
-                    fullWidth
-                    onClick={handleClose}
-                    sx={{ mt: 1 }}
-                >
-                    Cancel
                 </Button>
             </Box>
         </Modal>
