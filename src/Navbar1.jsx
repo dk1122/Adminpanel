@@ -13,21 +13,27 @@ import {
     TablePagination,
     Paper,
     Checkbox,
-    Typography
+    Typography,
+    Modal,
+    IconButton,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
+import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 import ToggleButton from "./Togglebutton";
 import Dropdown from "./Dropdown";
-import { useNavigate } from 'react-router-dom';
+import Newpage from "./Newpage";
 
 const Navbar1 = () => {
-    const navigate = useNavigate();
+    const [open, setOpen] = useState(false);
     const [count, setCount] = useState(0);
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(5);
+
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -136,7 +142,7 @@ const Navbar1 = () => {
                     sx={{backgroundColor:'rgb(106, 39, 214)'}}
                     variant="contained"
                     startIcon={<AddIcon />}
-                    onClick={() => navigate("./Newpage")}
+                    onClick={handleOpen}
                 >
                     New Customers
                 </Button>
@@ -177,7 +183,6 @@ const Navbar1 = () => {
                         onRowsPerPageChange={handleChangeRowsPerPage}
                      />
                 </Box>
-
 
                 <TableContainer component={Paper}>
                     <Table>
@@ -238,6 +243,8 @@ const Navbar1 = () => {
                     </Table>
                 </TableContainer>
             </Box>
+
+            <Newpage open={open} handleClose={handleClose} />
         </Box>
     );
 };
