@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextField, Button, IconButton, InputAdornment, Box, Typography, Modal } from "@mui/material";
+import { TextField, Button, IconButton, InputAdornment, Box, Typography, Modal, Divider } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import "./Font.css";
 
@@ -30,17 +30,20 @@ const Password = ({ open, handleClose }) => {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: 600,
     bgcolor: 'background.paper',
     p: 4,
+    borderRadius: '10px',
+    boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)',
   };
 
   return (
     <Modal open={open} onClose={handleClose}>
       <Box sx={style}>
-        <Typography variant="h6" gutterBottom>
+        <Typography variant="h6" gutterBottom sx={{ fontFamily: "DM Sans" }}>
           Reset Password
         </Typography>
+        <Divider sx={{ my: 2 }} />
         <TextField
           fullWidth
           label="New Password"
@@ -49,7 +52,7 @@ const Password = ({ open, handleClose }) => {
           value={newPassword}
           onChange={(e) => setNewPassword(e.target.value)}
           helperText="Min. 8 characters"
-          sx={{ mb: 2 }}
+          sx={{ mb: 2, fontFamily: "DM Sans" }}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
@@ -58,6 +61,7 @@ const Password = ({ open, handleClose }) => {
                 </IconButton>
               </InputAdornment>
             ),
+            sx: { fontFamily: "DM Sans" },
           }}
         />
         <TextField
@@ -68,7 +72,7 @@ const Password = ({ open, handleClose }) => {
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           helperText="Min. 8 characters"
-          sx={{ mb: 2 }}
+          sx={{ mb: 2, fontFamily: "DM Sans" }}
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
@@ -77,21 +81,34 @@ const Password = ({ open, handleClose }) => {
                 </IconButton>
               </InputAdornment>
             ),
+            sx: { fontFamily: "DM Sans" },
           }}
         />
         {error && (
-          <Typography color="error" sx={{ mb: 2 }}>
+          <Typography color="error" sx={{ mb: 2, fontFamily: "DM Sans" }}>
             {error}
           </Typography>
         )}
-        <Button
-          variant="contained"
-          color="primary"
-          fullWidth
-          onClick={handleReset}
+        <Divider sx={{ my: 1 }} />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "flex-end", // Align button to the right
+          }}
         >
-          Reset
-        </Button>
+          <Button
+            variant="contained"
+            sx={{
+              bgcolor: '#7F2DF1',
+              height: 45,
+              width: 200,
+              fontFamily: "DM Sans",
+            }}
+            onClick={handleReset}
+          >
+            Reset
+          </Button>
+        </Box>
       </Box>
     </Modal>
   );
