@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import { Menu, MenuItem, IconButton } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import AddCredits from './Addcredits';
@@ -25,11 +24,6 @@ const Dropdown = () => {
     setAnchorEl(null);
   };
 
-  // const handleOptionClick = (option) => {
-  //   console.log(`Selected: ${option}`);
-  //   handleMenuClose(); // Close dropdown after selection
-  // };
-
   return (
     <div className="dropdown">
       <IconButton onClick={handleMenuOpen}>
@@ -39,12 +33,40 @@ const Dropdown = () => {
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
         onClose={handleMenuClose}
+        MenuListProps={{
+          sx: { fontFamily: "DM Sans" }, // Added fontFamily
+        }}
       >
-        <MenuItem onClick={() => setOpenCredit(true)}>Add Credits</MenuItem>
-        <MenuItem onClick={() => setOpenSubscription(true)}>Subscription</MenuItem>
-        <MenuItem onClick={() => setOpenPricingTable(true)}>Rates</MenuItem>
-        <MenuItem onClick={() => setOpenPassword(true)}>Reset Password</MenuItem>
-        <MenuItem onClick={() => setOpenAddsubscription(true)}>Add Subscription</MenuItem>
+        <MenuItem
+          onClick={() => setOpenCredit(true)}
+          sx={{ fontFamily: "DM Sans" }} // Added fontFamily
+        >
+          Add Credits
+        </MenuItem>
+        <MenuItem
+          onClick={() => setOpenSubscription(true)}
+          sx={{ fontFamily: "DM Sans" }} // Added fontFamily
+        >
+          Subscription
+        </MenuItem>
+        <MenuItem
+          onClick={() => setOpenPricingTable(true)}
+          sx={{ fontFamily: "DM Sans" }} // Added fontFamily
+        >
+          Rates
+        </MenuItem>
+        <MenuItem
+          onClick={() => setOpenPassword(true)}
+          sx={{ fontFamily: "DM Sans" }} // Added fontFamily
+        >
+          Reset Password
+        </MenuItem>
+        <MenuItem
+          onClick={() => setOpenAddsubscription(true)}
+          sx={{ fontFamily: "DM Sans" }} // Added fontFamily
+        >
+          Add Subscription
+        </MenuItem>
       </Menu>
       {openCredit && <AddCredits open={openCredit} handleClose={() => setOpenCredit(false)} />}
       {openSubscription && <Subscription open={openSubscription} handleClose={() => setOpenSubscription(false)} />}
