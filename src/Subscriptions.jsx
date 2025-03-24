@@ -34,7 +34,14 @@ const Subscriptions = () => {
   return (
     <Box sx={{ padding: 3 }}>
       <Box display="flex" justifyContent="flex-end" mb={2}>
-        <Button variant="contained" sx={{ backgroundColor: '#be2ed6', color: 'white' }}>
+        <Button
+          variant="contained"
+          sx={{
+            backgroundColor: '#7F2DF1',
+            color: 'white',
+            fontFamily: 'DM Sans', // Added fontFamily
+          }}
+        >
           Create Plan
         </Button>
       </Box>
@@ -44,23 +51,55 @@ const Subscriptions = () => {
             <Card sx={{ height: '100%' }}>
               <CardContent>
                 <Box display="flex" justifyContent="space-between" alignItems="center">
-                  <Typography variant="h5">{plan.title}</Typography>
+                  <Typography
+                    variant="h5"
+                    sx={{
+                      fontFamily: 'DM Sans', // Added fontFamily
+                    }}
+                  >
+                    {plan.title}
+                  </Typography>
                   <IconButton size="small" sx={{ color: '#808080' }}>
                     <EditIcon />
                   </IconButton>
                 </Box>
                 {plan.features.map((feature, idx) => (
                   <Box display="flex" alignItems="center" key={idx} sx={{ mb: 2 }}>
-                    <Typography variant="body1" sx={{ flexGrow: 1 }}>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        flexGrow: 1,
+                        fontFamily: 'DM Sans', // Added fontFamily
+                      }}
+                    >
                       {feature}
                     </Typography>
-                    <Switch sx={{ '& .MuiSwitch-switchBase.Mui-checked': { color: '#be2ed6' }, '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': { backgroundColor: '#be2ed6' } }} />
+                    <Switch
+                      sx={{
+                        '& .MuiSwitch-switchBase.Mui-checked': { color: '#7F2DF1' },
+                        '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': { backgroundColor: '#7F2DF1' },
+                      }}
+                    />
                   </Box>
                 ))}
                 {plan.price !== null && (
                   <Box mt={2} display="flex" justifyContent="space-between" alignItems="center">
-                    <Typography variant="h6">Pricing</Typography>
-                    <Button variant="outlined" sx={{ borderColor: '#8E24AA', color: '#be2ed6' }}>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontFamily: 'DM Sans', // Added fontFamily
+                      }}
+                    >
+                      Pricing
+                    </Typography>
+                    <Button
+                      variant="outlined"
+                      sx={{
+                        borderColor: '#8E24AA',
+                        color: '#be2ed6',
+                        fontFamily: 'DM Sans', // Added fontFamily
+                      }}
+                    >
                       {plan.price}
                     </Button>
                   </Box>
