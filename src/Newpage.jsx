@@ -30,68 +30,87 @@ const Newpage = ({ open, handleClose }) => {
         >
           <CloseIcon />
         </IconButton>
-        <Typography variant="h4" align="center" gutterBottom>
+        <Typography
+          variant="h4"
+          align="center"
+          gutterBottom
+          sx={{ fontFamily: "DM Sans" }} // Added fontFamily
+        >
           Create New Account
         </Typography>
         <form noValidate autoComplete="off">
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <label htmlFor="">Name*</label>
+              <label htmlFor="" style={{ fontFamily: "DM Sans" }}>Name*</label>
               <TextField
                 variant="outlined"
                 fullWidth
                 placeholder="Enter your name here"
                 required
+                sx={{ fontFamily: "DM Sans" }} // Added fontFamily
               />
             </Grid>
             <Grid item xs={12}>
-              <label htmlFor="">Email*</label>
+              <label htmlFor="" style={{ fontFamily: "DM Sans" }}>Email*</label>
               <TextField
                 variant="outlined"
                 fullWidth
                 type="email"
                 placeholder="example@convobox.com"
                 required
+                sx={{ fontFamily: "DM Sans" }} // Added fontFamily
               />
             </Grid>
             <Grid item xs={12}>
-              <label htmlFor="">Phone number</label>
+              <label htmlFor="" style={{ fontFamily: "DM Sans" }}>Phone number</label>
               <TextField
                 variant="outlined"
                 fullWidth
                 placeholder="+91 9994770276"
                 required
+                sx={{ fontFamily: "DM Sans" }} // Added fontFamily
               />
             </Grid>
             <Grid item xs={12}>
-              <label htmlFor="">Business name*</label>
+              <label htmlFor="" style={{ fontFamily: "DM Sans" }}>Business name*</label>
               <TextField
                 variant="outlined"
                 fullWidth
                 placeholder="Enter business name"
                 required
+                sx={{ fontFamily: "DM Sans" }} // Added fontFamily
               />
             </Grid>
             <Grid item xs={12}>
-              <label htmlFor="">Business Website*</label>
+              <label htmlFor="" style={{ fontFamily: "DM Sans" }}>Business Website*</label>
               <TextField
                 variant="outlined"
                 fullWidth
                 placeholder="Enter business website"
+                sx={{ fontFamily: "DM Sans" }} // Added fontFamily
               />
             </Grid>
             <Grid item xs={12}>
-              <label htmlFor="">Password*</label>
+              <label htmlFor="" style={{ fontFamily: "DM Sans" }}>Password*</label>
               <TextField
                 variant="outlined"
                 fullWidth
                 type="password"
                 placeholder="Min. 8 characters"
                 required
+                sx={{ fontFamily: "DM Sans" }} // Added fontFamily
               />
             </Grid>
             <Grid item xs={12}>
-              <Button variant="contained" color="primary" fullWidth style={{ backgroundColor: '#8e24aa' }}>
+              <Button
+                variant="contained"
+                color="primary"
+                fullWidth
+                sx={{
+                  backgroundColor: '#7F2DF1',
+                  fontFamily: "DM Sans", // Added fontFamily
+                }}
+              >
                 Create Account
               </Button>
             </Grid>
