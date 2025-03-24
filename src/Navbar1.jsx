@@ -30,7 +30,7 @@ const Navbar1 = () => {
     const [open, setOpen] = useState(false);
     const [count, setCount] = useState(0);
     const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = useState(5);
+    const [rowsPerPage, setRowsPerPage] = useState(10);
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -53,73 +53,95 @@ const Navbar1 = () => {
         {
             id: "1",
             business: "Balagopal Jewellery",
-            email: "balaji@gmail.com",
-            contact: "65435658432",
-            date: "09/01/2025",
+            email: "Vignesh@convobox.in",
+            contact: "+91 23456789",
+            date: "30/08/24",
             wabaStatus: "Connected",
-            subscription: "Trial Period",
-            startDate: "10/02/2025",
-            endDate: "10/02/2026",
-            balance: "267000"
+            subscription: "Starter Plan",
+            startDate: "30/08/24",
+            endDate: "30/02/25",
+            balance: "Rs. 7569"
         },
         {
             id: "2",
-            business: "SilverSpark Textiles",
-            email: "info@silverspark.com",
-            contact: "9876543210",
-            date: "08/15/2024",
-            wabaStatus: "Pending",
-            subscription: "Premium",
-            startDate: "08/15/2024",
-            endDate: "08/15/2025",
-            balance: "180000"
+            business: "Sembaruthi",
+            email: "sabharish@convobox.in",
+            contact: "+91 23456789",
+            date: "25/06/24",
+            wabaStatus: "Not Connected",
+            subscription: "Trial Period",
+            startDate: "25/06/24",
+            endDate: "25/06/24",
+            balance: "Rs. 756"
         },
         {
             id: "3",
-            business: "GreenLeaf Foods",
-            email: "contact@greenleaf.com",
-            contact: "8765432109",
-            date: "07/20/2024",
-            wabaStatus: "Disconnected",
-            subscription: "Basic",
-            startDate: "07/20/2024",
-            endDate: "07/20/2025",
-            balance: "95000"
+            business: "Sri Venkateswara Silks",
+            email: "sabharish@convobox.in",
+            contact: "+91 23456789",
+            date: "25/06/24",
+            wabaStatus: "Not Connected",
+            subscription: "Trial Period",
+            startDate: "25/06/24",
+            endDate: "25/06/24",
+            balance: "Rs. 756"
         },
         {
             id: "4",
-            business: "TechPro Solutions",
-            email: "support@techpro.com",
-            contact: "7654321098",
-            date: "06/10/2024",
-            wabaStatus: "Connected",
-            subscription: "Enterprise",
-            startDate: "06/10/2024",
-            endDate: "06/10/2025",
-            balance: "450000"
+            business: "Bala Gopalan Jewellery",
+            email: "sabharish@convobox.in",
+            contact: "+91 23456789",
+            date: "25/06/24",
+            wabaStatus: "Not Connected",
+            subscription: "Trial Period",
+            startDate: "25/06/24",
+            endDate: "25/06/24",
+            balance: "Rs. 756"
         },
         {
             id: "5",
-            business: "Urban Design Architects",
-            email: "hello@urbandesign.com",
-            contact: "6547893210",
-            date: "05/25/2024",
-            wabaStatus: "Connected",
-            subscription: "Premium",
-            startDate: "05/25/2024",
-            endDate: "05/25/2025",
-            balance: "275000"
-        }
-        
+            business: "Bala Gopalan Jewellery",
+            email: "sabharish@convobox.in",
+            contact: "+91 23456789",
+            date: "25/06/24",
+            wabaStatus: "Not Connected",
+            subscription: "Trial Period",
+            startDate: "25/06/24",
+            endDate: "25/06/24",
+            balance: "Rs. 756"
+        },
+        // {
+        //     id: "5",
+        //     business: "Bala Gopalan Jewellery",
+        //     email: "sabharish@convobox.in",
+        //     contact: "+91 23456789",
+        //     date: "25/06/24",
+        //     wabaStatus: "Not Connected",
+        //     subscription: "Trial Period",
+        //     startDate: "25/06/24",
+        //     endDate: "25/06/24",
+        //     balance: "Rs. 756"
+        // }
     ];
     
     const visibleRows = tableData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 
     return (
-        <Box sx={{ paddingLeft: 7 }}>
-            <Card variant="outlined" sx={{ mb: 3, width: '100%', borderWidth: '1px' }}>
-                <CardContent sx={{ display: 'flex', alignItems: 'flex-start' }}>
-                    <Typography variant="h5">Customers</Typography>
+        <Box sx={{ paddingLeft: 0, paddingTop: 0, paddingRight: 0, paddingBottom: 10, paddingLeft: 6.35 }}>
+            <Card
+                variant="outlined"
+                sx={{
+                    width: '100%',
+                    height: '50px',
+                    borderWidth: '0px',
+                    borderRadius: '0px',
+                    boxShadow: 0,
+                }}
+            >
+                <CardContent sx={{ display: 'flex', alignItems: 'center', padding: '8px' }}>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: '1.1rem', fontFamily: 'DM Sans' }}>
+                        Customers
+                    </Typography>
                 </CardContent>
             </Card>
 
@@ -137,9 +159,10 @@ const Navbar1 = () => {
                         endAdornment: <SearchIcon sx={{ color: 'action.active', mr: 1 }} />
                     }}
                     variant="outlined"
+                    sx={{ fontFamily: 'DM Sans' }}
                 />
                 <Button
-                    sx={{backgroundColor:'rgb(106, 39, 214)'}}
+                    sx={{ backgroundColor: '#7F2DF1', fontFamily: 'DM Sans' }}
                     variant="contained"
                     startIcon={<AddIcon />}
                     onClick={handleOpen}
@@ -152,7 +175,7 @@ const Navbar1 = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 gap: 2,
-                padding: '10px',
+                padding: '0px',
                 mb: 2,
                 backgroundColor: 'white',
                 borderRadius: 1,
@@ -163,17 +186,22 @@ const Navbar1 = () => {
                     alignItems: 'center',
                     gap: 2
                 }}>
-                    <Typography sx={{color:'grey'}}>{count} Selected</Typography>
+                    <Typography sx={{ color: 'grey', fontFamily: 'DM Sans' }}>{count} Selected</Typography>
                     <Button
                         variant="outlined"
                         color="error"
                         startIcon={<DeleteIcon />}
                         size="small"
+                        sx={{
+                            borderColor: '#FF1616',
+                            color: '#FF1616',
+                            fontFamily: 'DM Sans',
+                        }}
                     >
                         Delete
                     </Button>
                     <TablePagination
-                        sx={{ marginLeft: 'auto' }}
+                        sx={{ marginLeft: 'auto', fontFamily: 'DM Sans' }}
                         rowsPerPageOptions={[]} 
                         component="div"
                         count={tableData.length}
@@ -181,28 +209,26 @@ const Navbar1 = () => {
                         page={page}
                         onPageChange={handleChangePage}
                         onRowsPerPageChange={handleChangeRowsPerPage}
-                     />
+                    />
                 </Box>
 
                 <TableContainer component={Paper}>
                     <Table>
                         <TableHead>
-                        <TableRow>
-                            <TableCell>
-                            </TableCell>
-                            <TableCell sx={{ fontSize: "12px", minWidth: 140, whiteSpace: "nowrap" }}>Business Names</TableCell>
-                            <TableCell sx={{ fontSize: "12px", minWidth: 60, whiteSpace: "nowrap" }}>E-mail</TableCell>
-                            <TableCell sx={{ fontSize: "12px", minWidth: 60, whiteSpace: "nowrap" }}>Contact</TableCell>
-                            <TableCell sx={{ fontSize: "12px", minWidth: 60, whiteSpace: "nowrap" }}>Date</TableCell>
-                            <TableCell sx={{ fontSize: "12px", minWidth: 130, whiteSpace: "nowrap" }} align="center">WABA Number Status</TableCell>
-                            <TableCell sx={{ fontSize: "12px", minWidth: 60, whiteSpace: "nowrap" }} align="center">Subscription Status</TableCell>
-                            <TableCell sx={{ fontSize: "12px", minWidth: 60, whiteSpace: "nowrap" }}>Start Date</TableCell>
-                            <TableCell sx={{ fontSize: "12px", minWidth: 60, whiteSpace: "nowrap" }}>End Date</TableCell>
-                            <TableCell sx={{ fontSize: "12px", minWidth: 40, whiteSpace: "nowrap" }}>Balance</TableCell>
-                            <TableCell sx={{ fontSize: "12px", minWidth: 60, whiteSpace: "nowrap" }}>Active/Disabled</TableCell>
-                            <TableCell sx={{ fontSize: "12px", minWidth: 80, whiteSpace: "nowrap" }}>Delete Account</TableCell>
-                        </TableRow>
-
+                            <TableRow>
+                                <TableCell padding="checkbox"></TableCell>
+                                <TableCell sx={{ fontSize: "12px", minWidth: 140, whiteSpace: "nowrap", fontFamily: 'DM Sans' }}>Business Name</TableCell>
+                                <TableCell sx={{ fontSize: "12px", minWidth: 60, whiteSpace: "nowrap", fontFamily: 'DM Sans' }}>Email</TableCell>
+                                <TableCell sx={{ fontSize: "12px", minWidth: 60, whiteSpace: "nowrap", fontFamily: 'DM Sans' }}>Contact Number</TableCell>
+                                <TableCell sx={{ fontSize: "12px", minWidth: 60, whiteSpace: "nowrap", fontFamily: 'DM Sans' }}>Created Date</TableCell>
+                                <TableCell sx={{ fontSize: "12px", minWidth: 130, whiteSpace: "nowrap", fontFamily: 'DM Sans' }} align="center">WABA Number Status</TableCell>
+                                <TableCell sx={{ fontSize: "12px", minWidth: 60, whiteSpace: "nowrap", fontFamily: 'DM Sans' }} align="center">Subscription Status</TableCell>
+                                <TableCell sx={{ fontSize: "12px", minWidth: 60, whiteSpace: "nowrap", fontFamily: 'DM Sans' }} align="center">Subscription Start Date</TableCell>
+                                <TableCell sx={{ fontSize: "12px", minWidth: 60, whiteSpace: "nowrap", fontFamily: 'DM Sans' }} align="center">Subscription End Date</TableCell>
+                                <TableCell sx={{ fontSize: "12px", minWidth: 40, whiteSpace: "nowrap", fontFamily: 'DM Sans' }}>Wallet Balance</TableCell>
+                                <TableCell sx={{ fontSize: "12px", minWidth: 60, whiteSpace: "nowrap", fontFamily: 'DM Sans' }}>Active/Disable</TableCell>
+                                <TableCell sx={{ fontSize: "12px", minWidth: 80, whiteSpace: "nowrap", fontFamily: 'DM Sans' }}>Delete Account</TableCell>
+                            </TableRow>
                         </TableHead>
                         <TableBody>
                             {visibleRows.map((row) => (
@@ -213,28 +239,33 @@ const Navbar1 = () => {
                                             onChange={handleCheckboxChange}
                                         />
                                     </TableCell>
-                                    <TableCell sx={{ fontSize: '12px' }}>{row.business}</TableCell>
-                                    <TableCell sx={{ fontSize: '12px' }}>{row.email}</TableCell>
-                                    <TableCell sx={{ fontSize: '12px', fontWeight:'' }}>{row.contact}</TableCell>
-                                    <TableCell sx={{ fontSize: '12px' }}>{row.date}</TableCell>
-                                    <TableCell sx={{ fontSize: '12px' }} align="center">{row.wabaStatus}</TableCell>
-                                    <TableCell sx={{ fontSize: '12px' }} align="center">{row.subscription}</TableCell>
-                                    <TableCell sx={{ fontSize: '12px' }}>{row.startDate}</TableCell>
-                                    <TableCell sx={{ fontSize: '12px' }}>{row.endDate}</TableCell>
-                                    <TableCell sx={{ fontSize: '12px' }}>{row.balance}</TableCell>
-                                    <TableCell sx={{ fontSize: '12px' }}><ToggleButton /></TableCell>
-                                    <TableCell sx={{ fontSize: '12px' }}>
-                                        <Box sx={{display:'flex'}}>
-                                        <Button
-                                            variant="contained"
-                                            color="error"
-                                            size="small"
-                                            startIcon={<DeleteIcon />}
-                                            sx={{ mr: 1}}
-                                        >
-                                            Delete
-                                        </Button>
-                                        <Dropdown />
+                                    <TableCell sx={{ fontSize: '12px', color: '#7F2DF1', fontFamily: 'DM Sans' }}>{row.business}</TableCell>
+                                    <TableCell sx={{ fontSize: '12px', color: '#425166', fontFamily: 'DM Sans' }}>{row.email}</TableCell>
+                                    <TableCell sx={{ fontSize: '12px', color: '#000000', fontFamily: 'DM Sans' }}>{row.contact}</TableCell>
+                                    <TableCell sx={{ fontSize: '12px', color: '#425166', fontFamily: 'DM Sans' }} align="center">{row.date}</TableCell>
+                                    <TableCell sx={{ fontSize: '12px', color: '#000000', fontFamily: 'DM Sans' }} align="center">{row.wabaStatus}</TableCell>
+                                    <TableCell sx={{ fontSize: '12px', color: '#000000', fontFamily: 'DM Sans' }} align="center">{row.subscription}</TableCell>
+                                    <TableCell sx={{ fontSize: '12px', color: '#425166', fontFamily: 'DM Sans' }} align="center">{row.startDate}</TableCell>
+                                    <TableCell sx={{ fontSize: '12px', color: '#425166', fontFamily: 'DM Sans' }} align="center">{row.endDate}</TableCell>
+                                    <TableCell sx={{ fontSize: '12px', color: '#000000', fontFamily: 'DM Sans' }} align="center">{row.balance}</TableCell>
+                                    <TableCell sx={{ fontSize: '12px', fontFamily: 'DM Sans' }}><ToggleButton /></TableCell>
+                                    <TableCell sx={{ fontSize: '12px', fontFamily: 'DM Sans' }}>
+                                        <Box sx={{ display: 'flex' }}>
+                                            <Button
+                                                variant="outlined"
+                                                color="error"
+                                                size="small"
+                                                startIcon={<DeleteIcon />}
+                                                sx={{
+                                                    mr: 1,
+                                                    borderColor: '#FF1616',
+                                                    color: '#FF1616',
+                                                    fontFamily: 'DM Sans',
+                                                }}
+                                            >
+                                                Delete
+                                            </Button>
+                                            <Dropdown />
                                         </Box>
                                     </TableCell>
                                 </TableRow>
