@@ -1,68 +1,167 @@
 import React, { useState } from "react";
-import { TextField, Button, Box, Typography, Modal } from "@mui/material";
+import {
+  TextField,
+  Button,
+  Box,
+  Typography,
+  Modal,
+  Paper,
+  Stack,
+  Divider,
+} from "@mui/material";
+import axios from "axios";
 import "./Font.css";
 
-
-const AddCredits = ({ open, handleClose }) => {
+const AddCredits = ({ open, handleClose, userId, wabaId, onCreditsUpdated }) => {
   const [amount, setAmount] = useState("");
-  const [reason, setReason] = useState("");
+  const [notes, setNotes] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleUpdate = () => {
-    console.log("Amount:", amount);
-    console.log("Reason:", reason);
-  };
+  const handleUpdate = async () => {
+    if (!amount || isNaN(amount) || amount <= 0) {
+      setError("Please enter a valid amount.");
+      return;
+    }
 
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    p: 4,
-  };
+    setLoading(true);
+    setError("");
 
-  const inputContainerStyle = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    mb: 2,
+    try {
+      const response = await axios.post("http://localhost:5000/api/admin/addCredits", {
+        userId,
+        wabaId,
+        amount: Number(amount),
+        notes,
+      });
+
+      console.log("Credits Updated:", response.data);
+
+      if (onCreditsUpdated) {
+        onCreditsUpdated(response.data);
+      }
+
+      setAmount("");
+      setNotes("");
+      handleClose();
+    } catch (err) {
+      console.error("Error updating credits:", err.response?.data || err.message);
+      setError(err.response?.data?.error || "Failed to update credits.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <div id='add'>
     <Modal open={open} onClose={handleClose}>
-      <Box sx={style}>
-        <Typography variant="h6" gutterBottom>
-          Add Credits
-        </Typography>
-        <Box sx={inputContainerStyle}>
-          <TextField
-            label="Amount"
-            variant="outlined"
-            type="number"
-            value={amount}
-            onChange={(e) => setAmount(e.target.value)}
-            sx={{ flex: 1, mr: 1 }} // Add margin to the right
-          />
-          <TextField
-            label="Reason/Comments"
-            variant="outlined"
-            value={reason}
-            onChange={(e) => setReason(e.target.value)}
-            sx={{ flex: 1 }} // Flex to take equal space
-          />
+      <Paper
+        elevation={1}
+        sx={{
+          width: 601,
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          borderRadius: "10px",
+        }}
+      >
+        <Box p={3} height={247}>
+          <Stack spacing={2} height="100%">
+            <Typography
+              variant="h6"
+              fontWeight="medium"
+              sx={{ fontFamily: "DM Sans" }} // Added fontFamily
+            >
+              Add Credits
+            </Typography>
+
+            <Divider />
+
+            {error && (
+              <Typography
+                variant="body2"
+                color="error"
+                sx={{ fontFamily: "DM Sans" }} // Added fontFamily
+              >
+                {error}
+              </Typography>
+            )}
+
+            <Box>
+              <Stack direction="row" spacing={2}>
+                <Box width={188}>
+                  <Typography
+                    color="text.secondary"
+                    fontWeight="medium"
+                    mb={1}
+                    sx={{ fontFamily: "DM Sans" }} // Added fontFamily
+                  >
+                    Amount
+                  </Typography>
+                  <TextField
+                    fullWidth
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
+                    variant="outlined"
+                    size="small"
+                    type="number"
+                    sx={{
+                      height: 46,
+                      fontFamily: "DM Sans", // Added fontFamily
+                    }}
+                  />
+                </Box>
+
+                <Box width={328}>
+                  <Typography
+                    color="text.secondary"
+                    fontWeight="medium"
+                    mb={1}
+                    sx={{ fontFamily: "DM Sans" }} // Added fontFamily
+                  >
+                    Reason/Comments
+                  </Typography>
+                  <TextField
+                    fullWidth
+                    value={notes}
+                    onChange={(e) => setNotes(e.target.value)}
+                    variant="outlined"
+                    size="small"
+                    sx={{
+                      height: 46,
+                      fontFamily: "DM Sans", // Added fontFamily
+                    }}
+                  />
+                </Box>
+              </Stack>
+            </Box>
+
+            <Divider />
+
+            <Box display="flex" justifyContent="flex-end">
+              <Button
+                variant="contained"
+                onClick={handleUpdate}
+                disabled={loading}
+                sx={{
+                  width: 200,
+                  height: 50,
+                  fontWeight: "bold",
+                  textTransform: "none",
+                  backgroundColor: "#7F2DF1",
+                  fontFamily: "DM Sans", // Added fontFamily
+                  "&:hover": {
+                    backgroundColor: "#6620C1",
+                  },
+                }}
+              >
+                {loading ? "Updating..." : "Update"}
+              </Button>
+            </Box>
+          </Stack>
         </Box>
-        <Button
-          variant="contained"
-          color="primary"
-          fullWidth
-          onClick={handleUpdate}
-        >
-          Update
-        </Button>
-      </Box>
+      </Paper>
     </Modal>
-    </div>
   );
 };
 
