@@ -13,33 +13,35 @@ function CustomTabs() {
   };
 
   return (
-    <div style={{ display: 'flex' }}>
+    <div style={{ display: "flex" }}>
       <Sidebar />
       <Box sx={{ width: "100%", bgcolor: "background.default", ml: 8, mt: 2 }}>
         <Tabs
           value={value}
           onChange={handleChange}
-          TabIndicatorProps={{ style: { backgroundColor: "grey", height: 4 } }}
-          sx={{ alignItems: 'flex-start' }} 
+          TabIndicatorProps={{ style: { backgroundColor: "#7F2DF1", height: 4 } }}
+          sx={{ alignItems: "flex-start" }}
         >
-          <Tab 
+          <Tab
             label="Rates"
             sx={{
+              fontFamily: "DM Sans", // Added fontFamily
               fontWeight: value === 0 ? "bold" : "normal",
-              color: "black", 
+              color: "black !important",
               textTransform: "none",
               fontSize: "18px",
-              mr: 2 
+              mr: 2,
             }}
           />
-          <Tab 
+          <Tab
             label="Subscription"
             sx={{
+              fontFamily: "DM Sans", // Added fontFamily
               fontWeight: value === 1 ? "bold" : "normal",
-              color: "black", 
+              color: "black !important",
               textTransform: "none",
               fontSize: "18px",
-              mr: 2 
+              mr: 2,
             }}
           />
         </Tabs>
